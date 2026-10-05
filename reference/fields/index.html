@@ -1,0 +1,239 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://terradue.github.io/pystac-ext-earthquake/reference/fields/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Earthquake fields - Earthquake pystac extension</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Earthquake fields";
+        var mkdocs_page_input_path = "reference/fields.md";
+        var mkdocs_page_url = "/pystac-ext-earthquake/reference/fields/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Earthquake pystac extension
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tutorials/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tutorials/first-steps/">First steps</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">How-to guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../how-to/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../how-to/install/">Install</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../how-to/use-extension/">Work with earthquake metadata</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Earthquake fields</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#source-records">Source records</a>
+    </li>
+    <li class="toctree-l2"><a class="reference internal" href="#defaults-and-required-fields">Defaults and required fields</a>
+    </li>
+    </ul>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../api/">Python API</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Explanation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../explanation/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../explanation/architecture/">Architecture</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Earthquake pystac extension</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Reference</li>
+      <li class="breadcrumb-item active">Earthquake fields</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Terradue/pystac-ext-earthquake/edit/main/docs/reference/fields.md">Edit on pystac-ext-earthquake</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <!--
+Copyright 2026 Terradue
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<h1 id="earthquake-fields">Earthquake fields<a class="headerlink" href="#earthquake-fields" title="Permanent link">&para;</a></h1>
+<p>The table combines the <a href="https://github.com/stac-extensions/earthquake#fields">upstream field definitions</a>, <a href="https://github.com/stac-extensions/earthquake/blob/main/json-schema/schema.json">JSON Schema</a>, and current setter behavior. Values are stored under Item <code>properties</code>, asset extra fields, or item asset definition properties.</p>
+<table>
+<thead>
+<tr>
+<th>STAC field</th>
+<th>Python property</th>
+<th>Meaning and current behavior</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td><code>eq:magnitude</code></td>
+<td><code>magnitude</code></td>
+<td>Event magnitude; the setter accepts values from −3 through 10 and stores a float.</td>
+</tr>
+<tr>
+<td><code>eq:magnitude_type</code></td>
+<td><code>magnitude_type</code></td>
+<td>Magnitude scale; annotated with <code>MagnitudeType</code>. No default is inserted.</td>
+</tr>
+<tr>
+<td><code>eq:felt</code></td>
+<td><code>felt</code></td>
+<td>Felt-report count; annotated as an integer, rejects negatives.</td>
+</tr>
+<tr>
+<td><code>eq:status</code></td>
+<td><code>status</code></td>
+<td>Review state: <code>automatic</code>, <code>reviewed</code>, or <code>deleted</code>.</td>
+</tr>
+<tr>
+<td><code>eq:tsunami</code></td>
+<td><code>tsunami</code></td>
+<td>Boolean flag; upstream describes large events in oceanic regions. It is not a confirmation of an observed tsunami.</td>
+</tr>
+<tr>
+<td><code>eq:sources</code></td>
+<td><code>sources</code></td>
+<td>Ordered list of source records; the setter rejects an empty list.</td>
+</tr>
+<tr>
+<td><code>eq:depth</code></td>
+<td><code>depth</code></td>
+<td>Event depth in kilometers, stored as a float.</td>
+</tr>
+</tbody>
+</table>
+<p>All getters can return <code>None</code> for an absent field, and all setters accept <code>None</code> to remove the stored value. <code>MagnitudeType</code> and <code>StatusType</code> provide static typing; their setters do not check membership at runtime.</p>
+<h2 id="source-records">Source records<a class="headerlink" href="#source-records" title="Permanent link">&para;</a></h2>
+<p><code>EarthquakeSource</code> is the existing dictionary type used by the API. Each record must contain <code>name</code> and <code>code</code>; <code>catalog</code> is optional. The setter requires non-empty strings for all three when present. Preserve ordering: upstream treats the first record as preferred.</p>
+<div class="highlight"><pre><span></span><code><span class="kn">from</span><span class="w"> </span><span class="nn">pystac.extensions.earthquake</span><span class="w"> </span><span class="kn">import</span> <span class="n">EarthquakeSource</span>
+
+<span class="n">sources</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">EarthquakeSource</span><span class="p">]</span> <span class="o">=</span> <span class="p">[</span>
+    <span class="p">{</span><span class="s2">"name"</span><span class="p">:</span> <span class="s2">"example-network"</span><span class="p">,</span> <span class="s2">"code"</span><span class="p">:</span> <span class="s2">"event-001"</span><span class="p">,</span> <span class="s2">"catalog"</span><span class="p">:</span> <span class="s2">"USGS"</span><span class="p">},</span>
+<span class="p">]</span>
+</code></pre></div>
+<p>The static dictionary type permits omitted keys, so the setter remains responsible for checking required keys. Catalog names are not restricted by the wrapper.</p>
+<h2 id="defaults-and-required-fields">Defaults and required fields<a class="headerlink" href="#defaults-and-required-fields" title="Permanent link">&para;</a></h2>
+<p>The upstream prose marks magnitude and sources as required and describes <code>mww</code> as the magnitude-type default. Pass these explicitly when creating an event. <code>apply()</code> requires magnitude and sources but does not supply <code>mww</code> automatically.</p>
+<p>The current upstream schema's <code>fields</code> definition has no <code>required</code> array for magnitude or sources. This differs from its prose. The schema requires source-record <code>name</code> and <code>code</code> when a source record is present. The Python setter additionally rejects empty names and codes and negative felt counts, which that schema does not reject.</p>
+<p>Consult <a href="../../explanation/architecture/#validation-boundaries">validation boundaries</a> when checking exported documents.</p>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../" class="btn btn-neutral float-left" title="Overview"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../api/" class="btn btn-neutral float-right" title="Python API">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Terradue/pystac-ext-earthquake" class="fa fa-code-fork" style="color: #fcfcfc"> pystac-ext-earthquake</a>
+        </span>
+    
+    
+      <span><a href="../" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../api/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>

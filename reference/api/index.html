@@ -1,0 +1,1374 @@
+<!DOCTYPE html>
+<html class="writer-html5" lang="en" >
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" /><link rel="canonical" href="https://terradue.github.io/pystac-ext-earthquake/reference/api/" />
+      <link rel="shortcut icon" href="../../img/favicon.ico" />
+    <title>Python API - Earthquake pystac extension</title>
+    <link rel="stylesheet" href="../../css/theme.css" />
+    <link rel="stylesheet" href="../../css/theme_extra.css" />
+        <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/styles/github.min.css" />
+        <link href="../../assets/_mkdocstrings.css" rel="stylesheet" />
+    
+      <script>
+        // Current page data
+        var mkdocs_page_name = "Python API";
+        var mkdocs_page_input_path = "reference/api.md";
+        var mkdocs_page_url = "/pystac-ext-earthquake/reference/api/";
+      </script>
+    
+    <!--[if lt IE 9]>
+      <script src="../../js/html5shiv.min.js"></script>
+    <![endif]-->
+      <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/11.8.0/highlight.min.js"></script>
+      <script>hljs.highlightAll();</script> 
+</head>
+
+<body class="wy-body-for-nav" role="document">
+
+  <div class="wy-grid-for-nav">
+    <nav data-toggle="wy-nav-shift" class="wy-nav-side stickynav">
+    <div class="wy-side-scroll">
+      <div class="wy-side-nav-search">
+          <a href="../.." class="icon icon-home"> Earthquake pystac extension
+        </a><div role="search">
+  <form id ="rtd-search-form" class="wy-form" action="../../search.html" method="get">
+      <input type="text" name="q" placeholder="Search docs" aria-label="Search docs" title="Type search term here" />
+  </form>
+</div>
+      </div>
+
+      <div class="wy-menu wy-menu-vertical" data-spy="affix" role="navigation" aria-label="Navigation menu">
+              <ul>
+                <li class="toctree-l1"><a class="reference internal" href="../..">Home</a>
+                </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Tutorials</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tutorials/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../tutorials/first-steps/">First steps</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">How-to guides</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../how-to/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../how-to/install/">Install</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../how-to/use-extension/">Work with earthquake metadata</a>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Reference</span></p>
+              <ul class="current">
+                  <li class="toctree-l1"><a class="reference internal" href="../">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../fields/">Earthquake fields</a>
+                  </li>
+                  <li class="toctree-l1 current"><a class="reference internal current" href="#">Python API</a>
+    <ul class="current">
+    <li class="toctree-l2"><a class="reference internal" href="#pystac.extensions.earthquake">earthquake</a>
+        <ul>
+    <li class="toctree-l3"><a class="reference internal" href="#pystac.extensions.earthquake.MagnitudeType">MagnitudeType</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pystac.extensions.earthquake.StatusType">StatusType</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pystac.extensions.earthquake.EARTHQUAKE_EXTENSION_HOOKS">EARTHQUAKE_EXTENSION_HOOKS</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pystac.extensions.earthquake.SCHEMA_URI">SCHEMA_URI</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtension">EarthquakeExtension</a>
+        <ul>
+    <li class="toctree-l4"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtension.depth">depth</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtension.felt">felt</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtension.magnitude">magnitude</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtension.magnitude_type">magnitude_type</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtension.sources">sources</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtension.status">status</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtension.tsunami">tsunami</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtension.apply">apply</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtension.ext">ext</a>
+    </li>
+    <li class="toctree-l4"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtension.get_schema_uri">get_schema_uri</a>
+    </li>
+        </ul>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeSource">EarthquakeSource</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pystac.extensions.earthquake.ItemEarthquakeExtension">ItemEarthquakeExtension</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pystac.extensions.earthquake.AssetEarthquakeExtension">AssetEarthquakeExtension</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pystac.extensions.earthquake.ItemAssetsEarthquakeExtension">ItemAssetsEarthquakeExtension</a>
+    </li>
+    <li class="toctree-l3"><a class="reference internal" href="#pystac.extensions.earthquake.EarthquakeExtensionHooks">EarthquakeExtensionHooks</a>
+    </li>
+        </ul>
+    </li>
+    </ul>
+                  </li>
+              </ul>
+              <p class="caption"><span class="caption-text">Explanation</span></p>
+              <ul>
+                  <li class="toctree-l1"><a class="reference internal" href="../../explanation/">Overview</a>
+                  </li>
+                  <li class="toctree-l1"><a class="reference internal" href="../../explanation/architecture/">Architecture</a>
+                  </li>
+              </ul>
+      </div>
+    </div>
+    </nav>
+
+    <section data-toggle="wy-nav-shift" class="wy-nav-content-wrap">
+      <nav class="wy-nav-top" role="navigation" aria-label="Mobile navigation menu">
+          <i data-toggle="wy-nav-top" class="fa fa-bars"></i>
+          <a href="../..">Earthquake pystac extension</a>
+        
+      </nav>
+      <div class="wy-nav-content">
+        <div class="rst-content"><div role="navigation" aria-label="breadcrumbs navigation">
+  <ul class="wy-breadcrumbs">
+    <li><a href="../.." class="icon icon-home" aria-label="Docs"></a></li>
+          <li class="breadcrumb-item">Reference</li>
+      <li class="breadcrumb-item active">Python API</li>
+    <li class="wy-breadcrumbs-aside">
+          <a href="https://github.com/Terradue/pystac-ext-earthquake/edit/main/docs/reference/api.md">Edit on pystac-ext-earthquake</a>
+    </li>
+  </ul>
+  <hr/>
+</div>
+          <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
+            <div class="section" itemprop="articleBody">
+              
+                <!--
+Copyright 2026 Terradue
+
+Licensed under the Apache License, Version 2.0 (the "License");
+you may not use this file except in compliance with the License.
+You may obtain a copy of the License at
+
+    http://www.apache.org/licenses/LICENSE-2.0
+
+Unless required by applicable law or agreed to in writing, software
+distributed under the License is distributed on an "AS IS" BASIS,
+WITHOUT WARRANTIES OR CONDITIONS OF ANY KIND, either express or implied.
+See the License for the specific language governing permissions and
+limitations under the License.
+-->
+
+<h1 id="python-api">Python API<a class="headerlink" href="#python-api" title="Permanent link">&para;</a></h1>
+<p>Import the extension from <code>pystac.extensions.earthquake</code>. Prefer <code>EarthquakeExtension.ext()</code> over constructing the concrete wrappers directly.</p>
+
+
+<div class="doc doc-object doc-module">
+
+
+
+<h2 id="pystac.extensions.earthquake" class="doc doc-heading">
+            <code>pystac.extensions.earthquake</code>
+
+
+<a href="#pystac.extensions.earthquake" class="headerlink" title="Permanent link">&para;</a></h2>
+
+    <div class="doc doc-contents first">
+
+        <p>Implementation of the STAC :stac-ext:<code>Earthquake Extension &lt;earthquake&gt;</code>.</p>
+
+
+
+
+
+
+
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pystac.extensions.earthquake.MagnitudeType" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">MagnitudeType</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">'0'</span><span class="p">,</span> <span class="s1">'2'</span><span class="p">,</span> <span class="s1">'4'</span><span class="p">,</span> <span class="s1">'fa'</span><span class="p">,</span> <span class="s1">'H'</span><span class="p">,</span> <span class="s1">'hn'</span><span class="p">,</span> <span class="s1">'lg'</span><span class="p">,</span> <span class="s1">'m'</span><span class="p">,</span> <span class="s1">'ma'</span><span class="p">,</span> <span class="s1">'mb'</span><span class="p">,</span> <span class="s1">'MbLg'</span><span class="p">,</span> <span class="s1">'mb_lg'</span><span class="p">,</span> <span class="s1">'mc'</span><span class="p">,</span> <span class="s1">'md'</span><span class="p">,</span> <span class="s1">'mdl'</span><span class="p">,</span> <span class="s1">'Me'</span><span class="p">,</span> <span class="s1">'mfa'</span><span class="p">,</span> <span class="s1">'mh'</span><span class="p">,</span> <span class="s1">'Mi'</span><span class="p">,</span> <span class="s1">'mint'</span><span class="p">,</span> <span class="s1">'mj'</span><span class="p">,</span> <span class="s1">'ml'</span><span class="p">,</span> <span class="s1">'ml(texnet)'</span><span class="p">,</span> <span class="s1">'mlg'</span><span class="p">,</span> <span class="s1">'mlr'</span><span class="p">,</span> <span class="s1">'mlv'</span><span class="p">,</span> <span class="s1">'Ms'</span><span class="p">,</span> <span class="s1">'ms_20'</span><span class="p">,</span> <span class="s1">'ms_vx'</span><span class="p">,</span> <span class="s1">'Mt'</span><span class="p">,</span> <span class="s1">'muk'</span><span class="p">,</span> <span class="s1">'mun'</span><span class="p">,</span> <span class="s1">'mw'</span><span class="p">,</span> <span class="s1">'mwb'</span><span class="p">,</span> <span class="s1">'mwc'</span><span class="p">,</span> <span class="s1">'mwp'</span><span class="p">,</span> <span class="s1">'mwr'</span><span class="p">,</span> <span class="s1">'mww'</span><span class="p">,</span> <span class="s1">'no'</span><span class="p">,</span> <span class="s1">'uk'</span><span class="p">,</span> <span class="s1">'Unknown'</span><span class="p">]</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.MagnitudeType" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pystac.extensions.earthquake.StatusType" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">StatusType</span> <span class="o">=</span> <span class="n">Literal</span><span class="p">[</span><span class="s1">'automatic'</span><span class="p">,</span> <span class="s1">'reviewed'</span><span class="p">,</span> <span class="s1">'deleted'</span><span class="p">]</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.StatusType" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pystac.extensions.earthquake.EARTHQUAKE_EXTENSION_HOOKS" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">EARTHQUAKE_EXTENSION_HOOKS</span><span class="p">:</span> <span class="n">ExtensionHooks</span> <span class="o">=</span> <span class="n">EarthquakeExtensionHooks</span><span class="p">()</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.EARTHQUAKE_EXTENSION_HOOKS" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h3 id="pystac.extensions.earthquake.SCHEMA_URI" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">SCHEMA_URI</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="s1">'https://stac-extensions.github.io/earthquake/v1.0.0/schema.json'</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-module-attribute"><code>module-attribute</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.SCHEMA_URI" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+
+    </div>
+
+</div>
+
+
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="pystac.extensions.earthquake.EarthquakeExtension" class="doc doc-heading">
+            <code>EarthquakeExtension</code>
+
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtension" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="typing.Generic">Generic</span>[<span title="pystac.extensions.earthquake.T">T</span>]</code>, <code><span title="pystac.extensions.base.PropertiesExtension">PropertiesExtension</span></code>, <code><span title="pystac.extensions.base.ExtensionManagementMixin">ExtensionManagementMixin</span>[<span title="pystac.Item">Item</span> | <span title="pystac.Collection">Collection</span>]</code></p>
+
+
+
+        <p>Implements the STAC Earthquake Extension for Items and also supports reading/writing
+extension fields on Assets and Collection Item Asset Definitions.</p>
+<p>Schema: https://stac-extensions.github.io/earthquake/v1.0.0/schema.json</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>pystac/extensions/earthquake.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">152</span>
+<span class="normal">153</span>
+<span class="normal">154</span>
+<span class="normal">155</span>
+<span class="normal">156</span>
+<span class="normal">157</span>
+<span class="normal">158</span>
+<span class="normal">159</span>
+<span class="normal">160</span>
+<span class="normal">161</span>
+<span class="normal">162</span>
+<span class="normal">163</span>
+<span class="normal">164</span>
+<span class="normal">165</span>
+<span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span>
+<span class="normal">170</span>
+<span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span>
+<span class="normal">191</span>
+<span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span>
+<span class="normal">215</span>
+<span class="normal">216</span>
+<span class="normal">217</span>
+<span class="normal">218</span>
+<span class="normal">219</span>
+<span class="normal">220</span>
+<span class="normal">221</span>
+<span class="normal">222</span>
+<span class="normal">223</span>
+<span class="normal">224</span>
+<span class="normal">225</span>
+<span class="normal">226</span>
+<span class="normal">227</span>
+<span class="normal">228</span>
+<span class="normal">229</span>
+<span class="normal">230</span>
+<span class="normal">231</span>
+<span class="normal">232</span>
+<span class="normal">233</span>
+<span class="normal">234</span>
+<span class="normal">235</span>
+<span class="normal">236</span>
+<span class="normal">237</span>
+<span class="normal">238</span>
+<span class="normal">239</span>
+<span class="normal">240</span>
+<span class="normal">241</span>
+<span class="normal">242</span>
+<span class="normal">243</span>
+<span class="normal">244</span>
+<span class="normal">245</span>
+<span class="normal">246</span>
+<span class="normal">247</span>
+<span class="normal">248</span>
+<span class="normal">249</span>
+<span class="normal">250</span>
+<span class="normal">251</span>
+<span class="normal">252</span>
+<span class="normal">253</span>
+<span class="normal">254</span>
+<span class="normal">255</span>
+<span class="normal">256</span>
+<span class="normal">257</span>
+<span class="normal">258</span>
+<span class="normal">259</span>
+<span class="normal">260</span>
+<span class="normal">261</span>
+<span class="normal">262</span>
+<span class="normal">263</span>
+<span class="normal">264</span>
+<span class="normal">265</span>
+<span class="normal">266</span>
+<span class="normal">267</span>
+<span class="normal">268</span>
+<span class="normal">269</span>
+<span class="normal">270</span>
+<span class="normal">271</span>
+<span class="normal">272</span>
+<span class="normal">273</span>
+<span class="normal">274</span>
+<span class="normal">275</span>
+<span class="normal">276</span>
+<span class="normal">277</span>
+<span class="normal">278</span>
+<span class="normal">279</span>
+<span class="normal">280</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">EarthquakeExtension</span><span class="p">(</span>
+    <span class="n">Generic</span><span class="p">[</span><span class="n">T</span><span class="p">],</span>
+    <span class="n">PropertiesExtension</span><span class="p">,</span>
+    <span class="n">ExtensionManagementMixin</span><span class="p">[</span><span class="n">pystac</span><span class="o">.</span><span class="n">Item</span> <span class="o">|</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Collection</span><span class="p">],</span>
+<span class="p">):</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Implements the STAC Earthquake Extension for Items and also supports reading/writing</span>
+<span class="sd">    extension fields on Assets and Collection Item Asset Definitions.</span>
+
+<span class="sd">    Schema: https://stac-extensions.github.io/earthquake/v1.0.0/schema.json</span>
+<span class="sd">    """</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="n">Literal</span><span class="p">[</span><span class="s2">"eq"</span><span class="p">]</span> <span class="o">=</span> <span class="s2">"eq"</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">get_schema_uri</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Return the published schema URI for this extension."""</span>
+        <span class="k">return</span> <span class="n">SCHEMA_URI</span>
+
+    <span class="nd">@classmethod</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">ext</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">add_if_missing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EarthquakeExtension</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Extend an Item, Asset, or ItemAssetDefinition with earthquake fields.</span>
+
+<span class="sd">        Args:</span>
+<span class="sd">            obj: The PySTAC object to wrap.</span>
+<span class="sd">            add_if_missing: If ``True``, add the earthquake schema URI to the owning</span>
+<span class="sd">                Item or Collection before returning the extension wrapper.</span>
+<span class="sd">        """</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Item</span><span class="p">):</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">ensure_has_extension</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">add_if_missing</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"EarthquakeExtension[T]"</span><span class="p">,</span> <span class="n">ItemEarthquakeExtension</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Asset</span><span class="p">):</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">ensure_owner_has_extension</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">add_if_missing</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"EarthquakeExtension[T]"</span><span class="p">,</span> <span class="n">AssetEarthquakeExtension</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+        <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pystac</span><span class="o">.</span><span class="n">ItemAssetDefinition</span><span class="p">):</span>
+            <span class="bp">cls</span><span class="o">.</span><span class="n">ensure_owner_has_extension</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">add_if_missing</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"EarthquakeExtension[T]"</span><span class="p">,</span> <span class="n">ItemAssetsEarthquakeExtension</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+        <span class="k">raise</span> <span class="n">ExtensionTypeError</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_ext_error_message</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span>
+        <span class="bp">self</span><span class="p">,</span>
+        <span class="o">*</span><span class="p">,</span>
+        <span class="n">magnitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+        <span class="n">sources</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">EarthquakeSource</span><span class="p">],</span>
+        <span class="n">magnitude_type</span><span class="p">:</span> <span class="n">MagnitudeType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">felt</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">status</span><span class="p">:</span> <span class="n">StatusType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">tsunami</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+        <span class="n">depth</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""</span>
+<span class="sd">        Apply earthquake fields to the wrapped object.</span>
+
+<span class="sd">        Note: schema marks `eq:magnitude` and `eq:sources` as required.</span>
+<span class="sd">        """</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">magnitude</span> <span class="o">=</span> <span class="n">magnitude</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">sources</span> <span class="o">=</span> <span class="n">sources</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">magnitude_type</span> <span class="o">=</span> <span class="n">magnitude_type</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">felt</span> <span class="o">=</span> <span class="n">felt</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">tsunami</span> <span class="o">=</span> <span class="n">tsunami</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">depth</span> <span class="o">=</span> <span class="n">depth</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">magnitude</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Magnitude of the earthquake event."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_property</span><span class="p">(</span><span class="n">MAGNITUDE_PROP</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+
+    <span class="nd">@magnitude</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">magnitude</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="n">MAGNITUDE_PROP</span><span class="p">,</span> <span class="n">_validate_magnitude</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">pop_if_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">magnitude_type</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">MagnitudeType</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Magnitude scale used to compute :attr:`magnitude`."""</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"MagnitudeType | None"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_property</span><span class="p">(</span><span class="n">MAGNITUDE_TYPE_PROP</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
+
+    <span class="nd">@magnitude_type</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">magnitude_type</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">MagnitudeType</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="n">MAGNITUDE_TYPE_PROP</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">pop_if_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">felt</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Reported number of people who felt the event."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_property</span><span class="p">(</span><span class="n">FELT_PROP</span><span class="p">,</span> <span class="nb">int</span><span class="p">)</span>
+
+    <span class="nd">@felt</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">felt</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="n">FELT_PROP</span><span class="p">,</span> <span class="n">_validate_felt</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">pop_if_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">StatusType</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Review status of the event metadata."""</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"StatusType | None"</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_property</span><span class="p">(</span><span class="n">STATUS_PROP</span><span class="p">,</span> <span class="nb">str</span><span class="p">))</span>
+
+    <span class="nd">@status</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">status</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="n">StatusType</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="n">STATUS_PROP</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">pop_if_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tsunami</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Whether the event was associated with a tsunami."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_property</span><span class="p">(</span><span class="n">TSUNAMI_PROP</span><span class="p">,</span> <span class="nb">bool</span><span class="p">)</span>
+
+    <span class="nd">@tsunami</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">tsunami</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="n">TSUNAMI_PROP</span><span class="p">,</span> <span class="n">v</span><span class="p">,</span> <span class="n">pop_if_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">depth</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Depth of the event in kilometers."""</span>
+        <span class="k">return</span> <span class="bp">self</span><span class="o">.</span><span class="n">_get_property</span><span class="p">(</span><span class="n">DEPTH_PROP</span><span class="p">,</span> <span class="nb">float</span><span class="p">)</span>
+
+    <span class="nd">@depth</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">depth</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="n">DEPTH_PROP</span><span class="p">,</span> <span class="kc">None</span> <span class="k">if</span> <span class="n">v</span> <span class="ow">is</span> <span class="kc">None</span> <span class="k">else</span> <span class="nb">float</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">pop_if_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+
+    <span class="nd">@property</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sources</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">list</span><span class="p">[</span><span class="n">EarthquakeSource</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">        </span><span class="sd">"""Provider-specific source records associated with this event."""</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span>
+            <span class="s2">"list[EarthquakeSource] | None"</span><span class="p">,</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">_get_property</span><span class="p">(</span><span class="n">SOURCES_PROP</span><span class="p">,</span> <span class="nb">list</span><span class="p">),</span>
+        <span class="p">)</span>
+
+    <span class="nd">@sources</span><span class="o">.</span><span class="n">setter</span>
+    <span class="k">def</span><span class="w"> </span><span class="nf">sources</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">v</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">EarthquakeSource</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">_set_property</span><span class="p">(</span><span class="n">SOURCES_PROP</span><span class="p">,</span> <span class="n">_validate_sources</span><span class="p">(</span><span class="n">v</span><span class="p">),</span> <span class="n">pop_if_none</span><span class="o">=</span><span class="kc">True</span><span class="p">)</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="pystac.extensions.earthquake.EarthquakeExtension.depth" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">depth</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtension.depth" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Depth of the event in kilometers.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="pystac.extensions.earthquake.EarthquakeExtension.felt" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">felt</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtension.felt" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Reported number of people who felt the event.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="pystac.extensions.earthquake.EarthquakeExtension.magnitude" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">magnitude</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtension.magnitude" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Magnitude of the earthquake event.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="pystac.extensions.earthquake.EarthquakeExtension.magnitude_type" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">magnitude_type</span><span class="p">:</span> <span class="n">MagnitudeType</span> <span class="o">|</span> <span class="kc">None</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtension.magnitude_type" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Magnitude scale used to compute :attr:<code>magnitude</code>.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="pystac.extensions.earthquake.EarthquakeExtension.sources" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">sources</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">EarthquakeSource</span><span class="p">]</span> <span class="o">|</span> <span class="kc">None</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtension.sources" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Provider-specific source records associated with this event.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="pystac.extensions.earthquake.EarthquakeExtension.status" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">status</span><span class="p">:</span> <span class="n">StatusType</span> <span class="o">|</span> <span class="kc">None</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtension.status" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Review status of the event metadata.</p>
+
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-attribute">
+
+
+
+<h4 id="pystac.extensions.earthquake.EarthquakeExtension.tsunami" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">tsunami</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-property"><code>property</code></small>
+      <small class="doc doc-label doc-label-writable"><code>writable</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtension.tsunami" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Whether the event was associated with a tsunami.</p>
+
+    </div>
+
+</div>
+
+
+
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="pystac.extensions.earthquake.EarthquakeExtension.apply" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">apply</span><span class="p">(</span><span class="o">*</span><span class="p">,</span> <span class="n">magnitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span> <span class="n">sources</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">EarthquakeSource</span><span class="p">],</span> <span class="n">magnitude_type</span><span class="p">:</span> <span class="n">MagnitudeType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">felt</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">status</span><span class="p">:</span> <span class="n">StatusType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">tsunami</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span> <span class="n">depth</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span></code>
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtension.apply" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Apply earthquake fields to the wrapped object.</p>
+<p>Note: schema marks <code>eq:magnitude</code> and <code>eq:sources</code> as required.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pystac/extensions/earthquake.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">192</span>
+<span class="normal">193</span>
+<span class="normal">194</span>
+<span class="normal">195</span>
+<span class="normal">196</span>
+<span class="normal">197</span>
+<span class="normal">198</span>
+<span class="normal">199</span>
+<span class="normal">200</span>
+<span class="normal">201</span>
+<span class="normal">202</span>
+<span class="normal">203</span>
+<span class="normal">204</span>
+<span class="normal">205</span>
+<span class="normal">206</span>
+<span class="normal">207</span>
+<span class="normal">208</span>
+<span class="normal">209</span>
+<span class="normal">210</span>
+<span class="normal">211</span>
+<span class="normal">212</span>
+<span class="normal">213</span>
+<span class="normal">214</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">def</span><span class="w"> </span><span class="nf">apply</span><span class="p">(</span>
+    <span class="bp">self</span><span class="p">,</span>
+    <span class="o">*</span><span class="p">,</span>
+    <span class="n">magnitude</span><span class="p">:</span> <span class="nb">float</span><span class="p">,</span>
+    <span class="n">sources</span><span class="p">:</span> <span class="nb">list</span><span class="p">[</span><span class="n">EarthquakeSource</span><span class="p">],</span>
+    <span class="n">magnitude_type</span><span class="p">:</span> <span class="n">MagnitudeType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">felt</span><span class="p">:</span> <span class="nb">int</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">status</span><span class="p">:</span> <span class="n">StatusType</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">tsunami</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+    <span class="n">depth</span><span class="p">:</span> <span class="nb">float</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span><span class="p">,</span>
+<span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Apply earthquake fields to the wrapped object.</span>
+
+<span class="sd">    Note: schema marks `eq:magnitude` and `eq:sources` as required.</span>
+<span class="sd">    """</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">magnitude</span> <span class="o">=</span> <span class="n">magnitude</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">sources</span> <span class="o">=</span> <span class="n">sources</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">magnitude_type</span> <span class="o">=</span> <span class="n">magnitude_type</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">felt</span> <span class="o">=</span> <span class="n">felt</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">status</span> <span class="o">=</span> <span class="n">status</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">tsunami</span> <span class="o">=</span> <span class="n">tsunami</span>
+    <span class="bp">self</span><span class="o">.</span><span class="n">depth</span> <span class="o">=</span> <span class="n">depth</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="pystac.extensions.earthquake.EarthquakeExtension.ext" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">ext</span><span class="p">(</span><span class="n">obj</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">add_if_missing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EarthquakeExtension</span><span class="p">[</span><span class="n">T</span><span class="p">]</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtension.ext" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Extend an Item, Asset, or ItemAssetDefinition with earthquake fields.</p>
+
+
+<table class="field-list">
+  <colgroup>
+    <col class="field-name" />
+    <col class="field-body" />
+  </colgroup>
+  <tbody valign="top">
+    <tr class="field">
+      <th class="field-name">Parameters:</th>
+      <td class="field-body">
+        <ul class="first simple">
+            <li>
+              <b><code>obj</code></b>
+                  (<code><span title="pystac.extensions.earthquake.T">T</span></code>)
+              –
+              <div class="doc-md-description">
+                <p>The PySTAC object to wrap.</p>
+              </div>
+            </li>
+            <li>
+              <b><code>add_if_missing</code></b>
+                  (<code><span title="bool">bool</span></code>, default:
+                      <code>False</code>
+)
+              –
+              <div class="doc-md-description">
+                <p>If <code>True</code>, add the earthquake schema URI to the owning
+Item or Collection before returning the extension wrapper.</p>
+              </div>
+            </li>
+        </ul>
+      </td>
+    </tr>
+  </tbody>
+</table>
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pystac/extensions/earthquake.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">171</span>
+<span class="normal">172</span>
+<span class="normal">173</span>
+<span class="normal">174</span>
+<span class="normal">175</span>
+<span class="normal">176</span>
+<span class="normal">177</span>
+<span class="normal">178</span>
+<span class="normal">179</span>
+<span class="normal">180</span>
+<span class="normal">181</span>
+<span class="normal">182</span>
+<span class="normal">183</span>
+<span class="normal">184</span>
+<span class="normal">185</span>
+<span class="normal">186</span>
+<span class="normal">187</span>
+<span class="normal">188</span>
+<span class="normal">189</span>
+<span class="normal">190</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">ext</span><span class="p">(</span><span class="bp">cls</span><span class="p">,</span> <span class="n">obj</span><span class="p">:</span> <span class="n">T</span><span class="p">,</span> <span class="n">add_if_missing</span><span class="p">:</span> <span class="nb">bool</span> <span class="o">=</span> <span class="kc">False</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="n">EarthquakeExtension</span><span class="p">[</span><span class="n">T</span><span class="p">]:</span>
+<span class="w">    </span><span class="sd">"""</span>
+<span class="sd">    Extend an Item, Asset, or ItemAssetDefinition with earthquake fields.</span>
+
+<span class="sd">    Args:</span>
+<span class="sd">        obj: The PySTAC object to wrap.</span>
+<span class="sd">        add_if_missing: If ``True``, add the earthquake schema URI to the owning</span>
+<span class="sd">            Item or Collection before returning the extension wrapper.</span>
+<span class="sd">    """</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Item</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">ensure_has_extension</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">add_if_missing</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"EarthquakeExtension[T]"</span><span class="p">,</span> <span class="n">ItemEarthquakeExtension</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Asset</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">ensure_owner_has_extension</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">add_if_missing</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"EarthquakeExtension[T]"</span><span class="p">,</span> <span class="n">AssetEarthquakeExtension</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+    <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">pystac</span><span class="o">.</span><span class="n">ItemAssetDefinition</span><span class="p">):</span>
+        <span class="bp">cls</span><span class="o">.</span><span class="n">ensure_owner_has_extension</span><span class="p">(</span><span class="n">obj</span><span class="p">,</span> <span class="n">add_if_missing</span><span class="p">)</span>
+        <span class="k">return</span> <span class="n">cast</span><span class="p">(</span><span class="s2">"EarthquakeExtension[T]"</span><span class="p">,</span> <span class="n">ItemAssetsEarthquakeExtension</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+    <span class="k">raise</span> <span class="n">ExtensionTypeError</span><span class="p">(</span><span class="bp">cls</span><span class="o">.</span><span class="n">_ext_error_message</span><span class="p">(</span><span class="n">obj</span><span class="p">))</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+<div class="doc doc-object doc-function">
+
+
+<h4 id="pystac.extensions.earthquake.EarthquakeExtension.get_schema_uri" class="doc doc-heading">
+            <code class="highlight language-python"><span class="n">get_schema_uri</span><span class="p">()</span> <span class="o">-&gt;</span> <span class="nb">str</span></code>
+
+  <span class="doc doc-labels">
+      <small class="doc doc-label doc-label-classmethod"><code>classmethod</code></small>
+  </span>
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtension.get_schema_uri" class="headerlink" title="Permanent link">&para;</a></h4>
+
+
+    <div class="doc doc-contents ">
+
+        <p>Return the published schema URI for this extension.</p>
+
+
+            <details class="mkdocstrings-source">
+              <summary>Source code in <code>pystac/extensions/earthquake.py</code></summary>
+              <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">166</span>
+<span class="normal">167</span>
+<span class="normal">168</span>
+<span class="normal">169</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="nd">@classmethod</span>
+<span class="k">def</span><span class="w"> </span><span class="nf">get_schema_uri</span><span class="p">(</span><span class="bp">cls</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+<span class="w">    </span><span class="sd">"""Return the published schema URI for this extension."""</span>
+    <span class="k">return</span> <span class="n">SCHEMA_URI</span>
+</code></pre></div></td></tr></table></div>
+            </details>
+    </div>
+
+</div>
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="pystac.extensions.earthquake.EarthquakeSource" class="doc doc-heading">
+            <code>EarthquakeSource</code>
+
+
+<a href="#pystac.extensions.earthquake.EarthquakeSource" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="typing.TypedDict">TypedDict</span></code></p>
+
+
+
+        <p>A single source entry stored in the <code>eq:sources</code> field.</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>pystac/extensions/earthquake.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">86</span>
+<span class="normal">87</span>
+<span class="normal">88</span>
+<span class="normal">89</span>
+<span class="normal">90</span>
+<span class="normal">91</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">EarthquakeSource</span><span class="p">(</span><span class="n">TypedDict</span><span class="p">,</span> <span class="n">total</span><span class="o">=</span><span class="kc">False</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""A single source entry stored in the ``eq:sources`` field."""</span>
+
+    <span class="n">name</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">code</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">catalog</span><span class="p">:</span> <span class="nb">str</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="pystac.extensions.earthquake.ItemEarthquakeExtension" class="doc doc-heading">
+            <code>ItemEarthquakeExtension</code>
+
+
+<a href="#pystac.extensions.earthquake.ItemEarthquakeExtension" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="EarthquakeExtension (pystac.extensions.earthquake.EarthquakeExtension)" href="#pystac.extensions.earthquake.EarthquakeExtension">EarthquakeExtension</a>[<span title="pystac.Item">Item</span>]</code></p>
+
+
+
+        <p>Concrete earthquake implementation for :class:<code>~pystac.Item</code> objects.</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>pystac/extensions/earthquake.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">283</span>
+<span class="normal">284</span>
+<span class="normal">285</span>
+<span class="normal">286</span>
+<span class="normal">287</span>
+<span class="normal">288</span>
+<span class="normal">289</span>
+<span class="normal">290</span>
+<span class="normal">291</span>
+<span class="normal">292</span>
+<span class="normal">293</span>
+<span class="normal">294</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ItemEarthquakeExtension</span><span class="p">(</span><span class="n">EarthquakeExtension</span><span class="p">[</span><span class="n">pystac</span><span class="o">.</span><span class="n">Item</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">"""Concrete earthquake implementation for :class:`~pystac.Item` objects."""</span>
+
+    <span class="n">item</span><span class="p">:</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Item</span>
+    <span class="n">properties</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item</span><span class="p">:</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Item</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">item</span> <span class="o">=</span> <span class="n">item</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">properties</span> <span class="o">=</span> <span class="n">item</span><span class="o">.</span><span class="n">properties</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"&lt;ItemEarthquakeExtension Item id=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">item</span><span class="o">.</span><span class="n">id</span><span class="si">}</span><span class="s2">&gt;"</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="pystac.extensions.earthquake.AssetEarthquakeExtension" class="doc doc-heading">
+            <code>AssetEarthquakeExtension</code>
+
+
+<a href="#pystac.extensions.earthquake.AssetEarthquakeExtension" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="EarthquakeExtension (pystac.extensions.earthquake.EarthquakeExtension)" href="#pystac.extensions.earthquake.EarthquakeExtension">EarthquakeExtension</a>[<span title="pystac.Asset">Asset</span>]</code></p>
+
+
+
+        <p>Concrete earthquake implementation for :class:<code>~pystac.Asset</code> objects.</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>pystac/extensions/earthquake.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">297</span>
+<span class="normal">298</span>
+<span class="normal">299</span>
+<span class="normal">300</span>
+<span class="normal">301</span>
+<span class="normal">302</span>
+<span class="normal">303</span>
+<span class="normal">304</span>
+<span class="normal">305</span>
+<span class="normal">306</span>
+<span class="normal">307</span>
+<span class="normal">308</span>
+<span class="normal">309</span>
+<span class="normal">310</span>
+<span class="normal">311</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">AssetEarthquakeExtension</span><span class="p">(</span><span class="n">EarthquakeExtension</span><span class="p">[</span><span class="n">pystac</span><span class="o">.</span><span class="n">Asset</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">"""Concrete earthquake implementation for :class:`~pystac.Asset` objects."""</span>
+
+    <span class="n">asset_href</span><span class="p">:</span> <span class="nb">str</span>
+    <span class="n">properties</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+    <span class="n">additional_read_properties</span><span class="p">:</span> <span class="n">Iterable</span><span class="p">[</span><span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]]</span> <span class="o">|</span> <span class="kc">None</span> <span class="o">=</span> <span class="kc">None</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">asset</span><span class="p">:</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Asset</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">asset_href</span> <span class="o">=</span> <span class="n">asset</span><span class="o">.</span><span class="n">href</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">properties</span> <span class="o">=</span> <span class="n">asset</span><span class="o">.</span><span class="n">extra_fields</span>
+        <span class="k">if</span> <span class="n">asset</span><span class="o">.</span><span class="n">owner</span> <span class="ow">and</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">asset</span><span class="o">.</span><span class="n">owner</span><span class="p">,</span> <span class="n">pystac</span><span class="o">.</span><span class="n">Item</span><span class="p">):</span>
+            <span class="bp">self</span><span class="o">.</span><span class="n">additional_read_properties</span> <span class="o">=</span> <span class="p">[</span><span class="n">asset</span><span class="o">.</span><span class="n">owner</span><span class="o">.</span><span class="n">properties</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__repr__</span><span class="p">(</span><span class="bp">self</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="nb">str</span><span class="p">:</span>
+        <span class="k">return</span> <span class="sa">f</span><span class="s2">"&lt;AssetEarthquakeExtension Asset href=</span><span class="si">{</span><span class="bp">self</span><span class="o">.</span><span class="n">asset_href</span><span class="si">}</span><span class="s2">&gt;"</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="pystac.extensions.earthquake.ItemAssetsEarthquakeExtension" class="doc doc-heading">
+            <code>ItemAssetsEarthquakeExtension</code>
+
+
+<a href="#pystac.extensions.earthquake.ItemAssetsEarthquakeExtension" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><a class="autorefs autorefs-internal" title="EarthquakeExtension (pystac.extensions.earthquake.EarthquakeExtension)" href="#pystac.extensions.earthquake.EarthquakeExtension">EarthquakeExtension</a>[<span title="pystac.ItemAssetDefinition">ItemAssetDefinition</span>]</code></p>
+
+
+
+        <p>Concrete earthquake implementation for item asset definitions.</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>pystac/extensions/earthquake.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">314</span>
+<span class="normal">315</span>
+<span class="normal">316</span>
+<span class="normal">317</span>
+<span class="normal">318</span>
+<span class="normal">319</span>
+<span class="normal">320</span>
+<span class="normal">321</span>
+<span class="normal">322</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">ItemAssetsEarthquakeExtension</span><span class="p">(</span><span class="n">EarthquakeExtension</span><span class="p">[</span><span class="n">pystac</span><span class="o">.</span><span class="n">ItemAssetDefinition</span><span class="p">]):</span>
+<span class="w">    </span><span class="sd">"""Concrete earthquake implementation for item asset definitions."""</span>
+
+    <span class="n">asset_defn</span><span class="p">:</span> <span class="n">pystac</span><span class="o">.</span><span class="n">ItemAssetDefinition</span>
+    <span class="n">properties</span><span class="p">:</span> <span class="nb">dict</span><span class="p">[</span><span class="nb">str</span><span class="p">,</span> <span class="n">Any</span><span class="p">]</span>
+
+    <span class="k">def</span><span class="w"> </span><span class="fm">__init__</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">item_asset</span><span class="p">:</span> <span class="n">pystac</span><span class="o">.</span><span class="n">ItemAssetDefinition</span><span class="p">)</span> <span class="o">-&gt;</span> <span class="kc">None</span><span class="p">:</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">asset_defn</span> <span class="o">=</span> <span class="n">item_asset</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">properties</span> <span class="o">=</span> <span class="n">item_asset</span><span class="o">.</span><span class="n">properties</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+<div class="doc doc-object doc-class">
+
+
+
+<h3 id="pystac.extensions.earthquake.EarthquakeExtensionHooks" class="doc doc-heading">
+            <code>EarthquakeExtensionHooks</code>
+
+
+<a href="#pystac.extensions.earthquake.EarthquakeExtensionHooks" class="headerlink" title="Permanent link">&para;</a></h3>
+
+
+    <div class="doc doc-contents ">
+            <p class="doc doc-class-bases">
+              Bases: <code><span title="pystac.extensions.hooks.ExtensionHooks">ExtensionHooks</span></code></p>
+
+
+
+        <p>Hook registration used when reading or migrating STAC objects.</p>
+
+
+
+
+
+
+
+              <details class="quote">
+                <summary>Source code in <code>pystac/extensions/earthquake.py</code></summary>
+                <div class="highlight"><table class="highlighttable"><tr><td class="linenos"><div class="linenodiv"><pre><span></span><span class="normal">325</span>
+<span class="normal">326</span>
+<span class="normal">327</span>
+<span class="normal">328</span>
+<span class="normal">329</span>
+<span class="normal">330</span>
+<span class="normal">331</span>
+<span class="normal">332</span>
+<span class="normal">333</span></pre></div></td><td class="code"><div><pre><span></span><code><span class="k">class</span><span class="w"> </span><span class="nc">EarthquakeExtensionHooks</span><span class="p">(</span><span class="n">ExtensionHooks</span><span class="p">):</span>
+<span class="w">    </span><span class="sd">"""Hook registration used when reading or migrating STAC objects."""</span>
+
+    <span class="n">schema_uri</span><span class="p">:</span> <span class="nb">str</span> <span class="o">=</span> <span class="n">SCHEMA_URI</span>
+    <span class="n">prev_extension_ids</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">set</span><span class="p">[</span><span class="nb">str</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span><span class="s2">"earthquake"</span><span class="p">,</span> <span class="s2">"eq"</span><span class="p">}</span>
+    <span class="n">stac_object_types</span><span class="p">:</span> <span class="n">ClassVar</span><span class="p">[</span><span class="nb">set</span><span class="p">[</span><span class="n">pystac</span><span class="o">.</span><span class="n">STACObjectType</span><span class="p">]]</span> <span class="o">=</span> <span class="p">{</span>
+        <span class="n">pystac</span><span class="o">.</span><span class="n">STACObjectType</span><span class="o">.</span><span class="n">COLLECTION</span><span class="p">,</span>
+        <span class="n">pystac</span><span class="o">.</span><span class="n">STACObjectType</span><span class="o">.</span><span class="n">ITEM</span><span class="p">,</span>
+    <span class="p">}</span>
+</code></pre></div></td></tr></table></div>
+              </details>
+
+
+
+<div class="doc doc-children">
+
+
+
+
+
+
+
+
+
+
+
+
+  </div>
+
+    </div>
+
+
+</div>
+
+
+
+
+  </div>
+
+    </div>
+
+</div>
+              
+            </div>
+          </div><footer>
+    <div class="rst-footer-buttons" role="navigation" aria-label="Footer Navigation">
+        <a href="../fields/" class="btn btn-neutral float-left" title="Earthquake fields"><span class="icon icon-circle-arrow-left"></span> Previous</a>
+        <a href="../../explanation/" class="btn btn-neutral float-right" title="Overview">Next <span class="icon icon-circle-arrow-right"></span></a>
+    </div>
+
+  <hr/>
+
+  <div role="contentinfo">
+    <!-- Copyright etc -->
+  </div>
+
+  Built with <a href="https://www.mkdocs.org/">MkDocs</a> using a <a href="https://github.com/readthedocs/sphinx_rtd_theme">theme</a> provided by <a href="https://readthedocs.org">Read the Docs</a>.
+</footer>
+          
+        </div>
+      </div>
+
+    </section>
+
+  </div>
+
+  <div class="rst-versions" role="note" aria-label="Versions">
+  <span class="rst-current-version" data-toggle="rst-current-version">
+    
+        <span>
+          <a href="https://github.com/Terradue/pystac-ext-earthquake" class="fa fa-code-fork" style="color: #fcfcfc"> pystac-ext-earthquake</a>
+        </span>
+    
+    
+      <span><a href="../fields/" style="color: #fcfcfc">&laquo; Previous</a></span>
+    
+    
+      <span><a href="../../explanation/" style="color: #fcfcfc">Next &raquo;</a></span>
+    
+  </span>
+</div>
+    <script src="../../js/jquery-3.6.0.min.js"></script>
+    <script>var base_url = "../..";</script>
+    <script src="../../js/theme_extra.js"></script>
+    <script src="../../js/theme.js"></script>
+      <script src="../../search/main.js"></script>
+    <script>
+        jQuery(function () {
+            SphinxRtdTheme.Navigation.enable(true);
+        });
+    </script>
+
+</body>
+</html>
